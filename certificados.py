@@ -1,5 +1,4 @@
 import io
-import locale
 from datetime import datetime
 
 import streamlit as st
@@ -18,11 +17,27 @@ st.set_page_config(
     layout="centered"
 )
 
-# Configurar o locale para português (Windows)
-try:
-    locale.setlocale(locale.LC_TIME, 'pt_br')  # Configura o locale para português do Brasil
-except locale.Error:
-    st.warning("Não foi possível configurar o locale para português. O mês será exibido em inglês.")
+# Mapeamento dos meses em português
+meses_pt = {
+    "January": "Janeiro",
+    "February": "Fevereiro",
+    "March": "Março",
+    "April": "Abril",
+    "May": "Maio",
+    "June": "Junho",
+    "July": "Julho",
+    "August": "Agosto",
+    "September": "Setembro",
+    "October": "Outubro",
+    "November": "Novembro",
+    "December": "Dezembro"
+}
+
+# Função para formatar a data em português
+def formatar_data_pt(data):
+    mes_ingles = data.strftime('%B')  # Nome do mês em inglês
+    mes_portugues = meses_pt.get(mes_ingles, mes_ingles)  # Traduz para português
+    return data.strftime(f'%d de {mes_portugues} de %Y')
 
 # Caminho para o logo da empresa (ajuste conforme necessário)
 LOGO_PATH = "Fortneer-Horizontal - Escuro 2.png"  # Coloque o caminho correto para o logo da empresa
@@ -79,7 +94,7 @@ def generate_pdf(participants, training_name, company, date, hours, instructor):
         paragraph.drawOn(c, margin, height - margin - 200 - logo_height)  # Ajuste para não sobrepor a logo
 
         # Local e data
-        location_date = f"<b>{city}, {datetime.now().strftime('%d de %B de %Y')}.</b>"
+        location_date = f"<b>{city}, {formatar_data_pt(datetime.now())}.</b>"
         location_paragraph = Paragraph(location_date, body_style)
         location_paragraph.wrapOn(c, width - 2 * margin, height)
         location_paragraph.drawOn(c, margin, margin + 100)
