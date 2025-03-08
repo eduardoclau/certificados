@@ -94,7 +94,7 @@ def generate_pdf(participants, training_name, company, date, hours, instructor):
         paragraph.drawOn(c, margin, height - margin - 200 - logo_height)  # Ajuste para não sobrepor a logo
 
         # Local e data
-        location_date = f"<b>{city}, {formatar_data_pt(datetime.now())}.</b>"
+        location_date = f"<b>{city} {formatar_data_pt(datetime.now())}.</b>"
         location_paragraph = Paragraph(location_date, body_style)
         location_paragraph.wrapOn(c, width - 2 * margin, height)
         location_paragraph.drawOn(c, margin, margin + 100)
