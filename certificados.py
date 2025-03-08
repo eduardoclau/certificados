@@ -11,6 +11,13 @@ from reportlab.lib.utils import ImageReader
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Paragraph
 
+# Configuração da página DEVE ser a primeira coisa
+st.set_page_config(
+    page_title="Gerador de Certificados",
+    page_icon="📄",
+    layout="centered"
+)
+
 # Configurar o locale para português (Windows)
 try:
     locale.setlocale(locale.LC_TIME, 'pt_br')  # Configura o locale para português do Brasil
@@ -96,9 +103,6 @@ def generate_pdf(participants, training_name, company, date, hours, instructor):
     c.save()
     pdf_buffer.seek(0)
     return pdf_buffer
-
-# Configuração da interface Streamlit
-st.set_page_config(page_title="Gerador de Certificados", page_icon="📄", layout="centered")
 
 # CSS personalizado para melhorar a interface
 st.markdown(
