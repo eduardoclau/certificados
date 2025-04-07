@@ -206,7 +206,10 @@ instructors = [
         "name": "Fabiana Mufatto Saviato Cardoso",
         "role": "Engenheira de Segurança do Trabalho",
         "registration": "CREA/SC.092791-5"
-    }
+    },
+    "name": "Allan Douglas Dos Santos",
+        "role": "Técnico em Segurança do Trabalho",
+        "registration": "MTE/PR.0016043"
 ]
 
 # Entrada de dados
