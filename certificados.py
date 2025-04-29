@@ -211,6 +211,11 @@ instructors = [
     "name": "Allan Douglas Dos Santos",
         "role": "Técnico em Segurança do Trabalho",
         "registration": "MTE/PR.0016043"
+    },
+    {
+        "name": "Kelvin de Macedo",
+        "role": "Técnico em Segurança do Trabalho",
+        "registration": "MTE/SC.0039941"
     }
 ]
 
