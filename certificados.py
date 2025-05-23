@@ -216,6 +216,11 @@ instructors = [
         "name": "Kelvin de Macedo",
         "role": "Técnico em Segurança do Trabalho",
         "registration": "MTE/SC.0039941"
+    },
+    {
+        "name": "Karina Locatelli",
+        "role": "Técnico em Segurança do Trabalho",
+        "registration": "MTE/SC.0006216"
     }
 ]
 
