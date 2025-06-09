@@ -221,6 +221,11 @@ instructors = [
         "name": "Karina Locatelli",
         "role": "Técnico em Segurança do Trabalho",
         "registration": "MTE/SC.0006216"
+    },
+    {
+        "name": "José Vilmar Krutli",
+        "role": "Técnico em Segurança do Trabalho",
+        "registration": "MTE/SC.00019615"
     }
 ]
 
