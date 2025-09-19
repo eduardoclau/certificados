@@ -3,12 +3,13 @@ from datetime import datetime
 
 import streamlit as st
 from reportlab.lib.colors import green
+from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY
 from reportlab.lib.pagesizes import A4, landscape
-from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
 from reportlab.lib.utils import ImageReader
 from reportlab.pdfgen import canvas
-from reportlab.platypus import Paragraph
+from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer
 
 # Configuração da página DEVE ser a primeira coisa
 st.set_page_config(
@@ -35,12 +36,148 @@ meses_pt = {
 
 # Função para formatar a data em português
 def formatar_data_pt(data):
+    if isinstance(data, str):
+        data = datetime.strptime(data, "%d/%m/%Y")
     mes_ingles = data.strftime('%B')  # Nome do mês em inglês
     mes_portugues = meses_pt.get(mes_ingles, mes_ingles)  # Traduz para português
     return data.strftime(f'%d de {mes_portugues} de %Y')
 
+# Conteúdos programáticos
+conteudos_programaticos = {
+    "NR-01": [
+        "Informações sobre as Condições e Meio Ambiente de Trabalho",
+        "Introdução a Segurança no Trabalho",
+        "Riscos inerentes à sua função",
+        "Uso adequado dos Equipamentos de Proteção Individual - EPI",
+        "Informações sobre os Equipamentos de Proteção Coletiva – EPC",
+        "Acidente do trabalho",
+        "Telefones Úteis",
+        "Responsabilidades e Competências",
+        "Conceitos e Definições",
+        "Certificado de Aprovação – CA",
+        "Conservação, Higienização e Guarda dos EPI'S",
+        "EPI para Proteção da Cabeça",
+        "EPI para Proteção dos Olhos e Face",
+        "EPI para Proteção Auditiva",
+        "EPI para Proteção Respiratória",
+        "EPI para Proteção do Tronco",
+        "EPI para Proteção dos Membros Superiores",
+        "EPI para Proteção dos Membros Inferiores",
+        "EPI para Proteção do Corpo Inteiro",
+        "EPI para Proteção Contra Quedas com Diferença de Nível"
+    ],
+    "NR-06": [
+        "Informações sobre as Condições e Meio Ambiente de Trabalho",
+        "Introdução a Segurança no Trabalho",
+        "Riscos inerentes à sua função",
+        "Uso adequado dos Equipamentos de Proteção Individual - EPI",
+        "Informações sobre os Equipamentos de Proteção Coletiva – EPC",
+        "Acidente do trabalho",
+        "Telefones Úteis",
+        "Responsabilidades e Competências",
+        "Conceitos e Definições",
+        "Certificado de Aprovação – CA",
+        "Conservação, Higienização e Guarda dos EPI'S",
+        "EPI para Proteção da Cabeça",
+        "EPI para Proteção dos Olhos e Face",
+        "EPI para Proteção Auditiva",
+        "EPI para Proteção Respiratória",
+        "EPI para Proteção do Tronco",
+        "EPI para Proteção dos Membros Superiores",
+        "EPI para Proteção dos Membros Inferiores",
+        "EPI para Proteção do Corpo Inteiro",
+        "EPI para Proteção Contra Quedas com Diferença de Nível"
+    ],
+    "NR-01 e NR-06": [
+        "Informações sobre as Condições e Meio Ambiente de Trabalho",
+        "Introdução a Segurança no Trabalho",
+        "Riscos inerentes à sua função",
+        "Uso adequado dos Equipamentos de Proteção Individual - EPI",
+        "Informações sobre os Equipamentos de Proteção Coletiva – EPC",
+        "Acidente do trabalho",
+        "Telefones Úteis",
+        "Responsabilidades e Competências",
+        "Conceitos e Definições",
+        "Certificado de Aprovação – CA",
+        "Conservação, Higienização e Guarda dos EPI'S",
+        "EPI para Proteção da Cabeça",
+        "EPI para Proteção dos Olhos e Face",
+        "EPI para Proteção Auditiva",
+        "EPI para Proteção Respiratória",
+        "EPI para Proteção do Tronco",
+        "EPI para Proteção dos Membros Superiores",
+        "EPI para Proteção dos Membros Inferiores",
+        "EPI para Proteção do Corpo Inteiro",
+        "EPI para Proteção Contra Quedas com Diferença de Nível"
+    ],
+    "NR-35 (Trabalho em Altura)": [
+        "Normas e regulamentos aplicáveis ao trabalho em altura",
+        "Análise de Risco e condições impeditivas",
+        "Riscos potenciais e medidas de prevenção e controle",
+        "Sistemas, equipamentos e procedimentos de proteção coletiva",
+        "Equipamentos de Proteção Individual para trabalho em altura: seleção, inspeção, conservação e limitação de uso",
+        "Acidentes típicos em trabalhos em altura",
+        "Equipamentos de guindar para elevação de pessoas e de materiais",
+        "Noções de técnicas de resgate e primeiros socorros"
+    ],
+    "NR-05 - Designado CIPA": [
+        "Estudo do ambiente, das condições de trabalho e riscos originados do processo produtivo",
+        "Noções sobre acidentes e doenças do trabalho decorrentes de exposição aos riscos existentes na empresa",
+        "Noções sobre a Síndrome da Imunodeficiência Adquirida - AIDS, e medidas de prevenção",
+        "Noções sobre as legislações trabalhista e previdenciária relativas à segurança e saúde no trabalho",
+        "Princípios gerais de higiene do trabalho e de medidas de controle dos riscos",
+        "Organização da CIPA e outros assuntos necessários ao exercício das atribuições da Comissão",
+        "Metodologia de investigação e análise de acidentes do trabalho"
+    ],
+    "NR-05 - CIPA": [
+        "Estudo do ambiente, das condições de trabalho e riscos originados do processo produtivo",
+        "Noções sobre acidentes e doenças do trabalho decorrentes de exposição aos riscos existentes na empresa",
+        "Noções sobre a Síndrome da Imunodeficiência Adquirida - AIDS, e medidas de prevenção",
+        "Noções sobre as legislações trabalhista e previdenciária relativas à segurança e saúde no trabalho",
+        "Princípios gerais de higiene do trabalho e de medidas de controle dos riscos",
+        "Organização da CIPA e outros assuntos necessários ao exercício das atribuições da Comissão",
+        "Metodologia de investigação e análise de acidentes do trabalho"
+    ]
+}
+
 # Caminho para o logo da empresa (ajuste conforme necessário)
 LOGO_PATH = "Fortneer-Horizontal - Escuro 2.png"  # Coloque o caminho correto para o logo da empresa
+
+# Função para gerar a página de verso com conteúdo programático
+def generate_back_page(c, training_name, width, height, margin):
+    # Desenhar a moldura verde colada nas extremidades
+    c.setStrokeColor(green)
+    c.setLineWidth(10)
+    c.rect(0, 0, width, height)
+    
+    # Título do conteúdo programático
+    c.setFont("Helvetica-Bold", 16)
+    c.drawCentredString(width/2, height - margin - 50, "CONTEÚDO PROGRAMÁTICO")
+    
+    # Nome do treinamento
+    c.setFont("Helvetica-Bold", 14)
+    c.drawCentredString(width/2, height - margin - 80, training_name)
+    
+    # Conteúdo programático
+    c.setFont("Helvetica", 12)
+    y_position = height - margin - 120
+    
+    # Verifica se existe conteúdo programático para o treinamento
+    if training_name in conteudos_programaticos:
+        conteudos = conteudos_programaticos[training_name]
+        for i, conteudo in enumerate(conteudos):
+            if y_position < margin + 50:
+                c.showPage()
+                # Desenhar a moldura verde na nova página
+                c.setStrokeColor(green)
+                c.setLineWidth(10)
+                c.rect(0, 0, width, height)
+                y_position = height - margin - 50
+                
+            c.drawString(margin + 20, y_position, f"{i+1}. {conteudo}")
+            y_position -= 20
+    else:
+        c.drawString(margin + 20, y_position, "Conteúdo programático não disponível para este treinamento.")
 
 # Função para gerar o PDF
 def generate_pdf(participants, training_name, company, date, hours, instructor):
@@ -93,8 +230,8 @@ def generate_pdf(participants, training_name, company, date, hours, instructor):
         paragraph.wrapOn(c, width - 2 * margin, height)
         paragraph.drawOn(c, margin, height - margin - 200 - logo_height)  # Ajuste para não sobrepor a logo
 
-        # Local e data
-        location_date = f"<b>{city}, {formatar_data_pt(datetime.now())}.</b>"
+        # Local e data (usando a data do treinamento, não a data atual)
+        location_date = f"<b>{city}, {formatar_data_pt(date)}.</b>"
         location_paragraph = Paragraph(location_date, body_style)
         location_paragraph.wrapOn(c, width - 2 * margin, height)
         location_paragraph.drawOn(c, margin, margin + 100)
@@ -111,7 +248,11 @@ def generate_pdf(participants, training_name, company, date, hours, instructor):
         mte = Paragraph(f"<b>{instructor['registration']}</b>", body_style)
         mte.wrapOn(c, width - 2 * margin, height)
         mte.drawOn(c, margin, margin + 40)
-
+        
+        # Nova página para o conteúdo programático (verso)
+        c.showPage()
+        generate_back_page(c, training_name, width, height, margin)
+        
         # Nova página para o próximo participante
         c.showPage()
     
