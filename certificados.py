@@ -42,7 +42,7 @@ def formatar_data_pt(data):
     mes_portugues = meses_pt.get(mes_ingles, mes_ingles)  # Traduz para português
     return data.strftime(f'%d de {mes_portugues} de %Y')
 
-# Conteúdos programáticos
+# Conteúdos programáticos COMPLETOS
 conteudos_programaticos = {
     "NR-01": [
         "Informações sobre as Condições e Meio Ambiente de Trabalho",
@@ -120,6 +120,37 @@ conteudos_programaticos = {
         "Equipamentos de guindar para elevação de pessoas e de materiais",
         "Noções de técnicas de resgate e primeiros socorros"
     ],
+    "NR-33 (Trabalho em Espaço Confinado)": [
+        "Definições e reconhecimento de espaços confinados",
+        "Critérios de identificação e avaliação de riscos",
+        "Funcionamento de equipamentos de medição de atmosferas",
+        "Técnicas de trabalho seguro em espaços confinados",
+        "Noções de resgate e primeiros socorros específicos",
+        "Uso adequado de EPIs e EPCs para espaços confinados",
+        "Procedimentos de entrada e trabalho em espaços confinados",
+        "Monitoramento contínuo da atmosfera",
+        "Comunicação e atuação da equipe"
+    ],
+    "Treinamento Ergonômico NR-17": [
+        "Conceitos básicos de ergonomia",
+        "Análise ergonômica do trabalho",
+        "Riscos ergonômicos no ambiente laboral",
+        "Mobiliário e equipamentos adequados",
+        "Técnicas de levantamento e transporte de cargas",
+        "Organização do tempo de trabalho",
+        "Pausas para descanso e alongamento",
+        "Adaptação das condições de trabalho às características psicofisiológicas"
+    ],
+    "NR-07 - Primeiros Socorros": [
+        "Noções básicas de primeiros socorros",
+        "Avaliação primária e secundária da vítima",
+        "Procedimentos para parada cardiorrespiratória",
+        "Controle de hemorragias e curativos",
+        "Imobilização de fraturas e luxações",
+        "Atendimento a queimaduras",
+        "Manuseio de equipamentos de primeiros socorros",
+        "Acionamento do serviço médico de emergência"
+    ],
     "NR-05 - Designado CIPA": [
         "Estudo do ambiente, das condições de trabalho e riscos originados do processo produtivo",
         "Noções sobre acidentes e doenças do trabalho decorrentes de exposição aos riscos existentes na empresa",
@@ -137,6 +168,86 @@ conteudos_programaticos = {
         "Princípios gerais de higiene do trabalho e de medidas de controle dos riscos",
         "Organização da CIPA e outros assuntos necessários ao exercício das atribuições da Comissão",
         "Metodologia de investigação e análise de acidentes do trabalho"
+    ],
+    "NR-11 - Operador de Empilhadeira": [
+        "Legislação e normas técnicas aplicáveis",
+        "Componentes e sistemas da empilhadeira",
+        "Inspeção diária e preventiva do equipamento",
+        "Técnicas de operação segura",
+        "Sinalização e comunicação no ambiente de trabalho",
+        "Estabilidade de cargas e noções de centro de gravidade",
+        "Manutenção básica e corretiva",
+        "Procedimentos de emergência"
+    ],
+    "NR-11 - Operador de Munck": [
+        "Legislação específica para operação de munck",
+        "Características técnicas do equipamento",
+        "Inspeção e manutenção preventiva",
+        "Técnicas de içamento e movimentação de cargas",
+        "Sinais manuais e comunicação por rádio",
+        "Cálculo de capacidade de carga e raio de operação",
+        "Procedimentos de segurança em áreas urbanas",
+        "Emergências e situações de risco"
+    ],
+    "NR-11 - Operador de Retroescavadeira": [
+        "Normas regulamentadoras aplicáveis",
+        "Componentes e sistemas hidráulicos",
+        "Inspeção diária do equipamento",
+        "Técnicas de escavação e aterramento",
+        "Estabilidade do equipamento em diferentes terrenos",
+        "Sinalização de área de trabalho",
+        "Manutenção básica e preventiva",
+        "Procedimentos de segurança específicos"
+    ],
+    "NR-11 - Operador de Pá Carregadeira": [
+        "Legislação e normas técnicas",
+        "Características técnicas da pá carregadeira",
+        "Inspeção e manutenção diária",
+        "Técnicas de carregamento e descarregamento",
+        "Movimentação em diferentes superfícies",
+        "Controle de estabilidade e centro de gravidade",
+        "Comunicação e sinalização no canteiro de obras",
+        "Procedimentos de emergência"
+    ],
+    "NR-20 - Inflamáveis Classe I": [
+        "Características dos inflamáveis classe I",
+        "Identificação e avaliação de riscos",
+        "Procedimentos de segurança em áreas classificadas",
+        "Equipamentos de proteção específicos",
+        "Prevenção e combate a incêndios",
+        "Armazenamento e manuseio seguro",
+        "Plano de resposta a emergências",
+        "Legislação específica da NR-20"
+    ],
+    "NR-20 - Inflamáveis Classe II": [
+        "Propriedades dos inflamáveis classe II",
+        "Técnicas de controle de fontes de ignição",
+        "Procedimentos operacionais padronizados",
+        "Sistemas de proteção contra incêndio",
+        "Inspeção de equipamentos e instalações",
+        "Gestão de mudanças em atividades com inflamáveis",
+        "Análise preliminar de risco",
+        "Treinamento de equipes de emergência"
+    ],
+    "NR-20 - Inflamáveis Classe III": [
+        "Características dos produtos classe III",
+        "Gestão de segurança em processos contínuos",
+        "Procedimentos para manutenção em áreas críticas",
+        "Sistemas de detecção e alarme",
+        "Plano de atendimento a emergências",
+        "Auditoria do sistema de gestão de segurança",
+        "Análise de acidentes e incidentes",
+        "Atualização tecnológica e melhores práticas"
+    ],
+    "IN-28 - Brigadista Orgânico": [
+        "Organização e atribuições da brigada de incêndio",
+        "Teoria do fogo e métodos de extinção",
+        "Classes de incêndio e agentes extintores",
+        "Operação de equipamentos de combate a incêndio",
+        "Técnicas de evacuação e abandono de área",
+        "Primeiros socorros em emergências",
+        "Plano de emergência contra incêndio",
+        "Simulados e exercícios práticos"
     ]
 }
 
@@ -180,7 +291,7 @@ def generate_back_page(c, training_name, width, height, margin):
         c.drawString(margin + 20, y_position, "Conteúdo programático não disponível para este treinamento.")
 
 # Função para gerar o PDF
-def generate_pdf(participants, training_name, company, date, hours, instructor):
+def generate_pdf(participants, training_name, company, date, hours, instructor, observations):
     pdf_buffer = io.BytesIO()
     c = canvas.Canvas(pdf_buffer, pagesize=landscape(A4))  # Modo paisagem
     
@@ -229,6 +340,14 @@ def generate_pdf(participants, training_name, company, date, hours, instructor):
         paragraph = Paragraph(text, body_style)
         paragraph.wrapOn(c, width - 2 * margin, height)
         paragraph.drawOn(c, margin, height - margin - 200 - logo_height)  # Ajuste para não sobrepor a logo
+
+        # Adicionar observações se fornecidas
+        if observations:
+            obs_y_position = height - margin - 250 - logo_height
+            obs_text = f"<b>Observações:</b> {observations}"
+            obs_paragraph = Paragraph(obs_text, body_style)
+            obs_paragraph.wrapOn(c, width - 2 * margin, height)
+            obs_paragraph.drawOn(c, margin, obs_y_position)
 
         # Local e data (usando a data do treinamento, não a data atual)
         location_date = f"<b>{city}, {formatar_data_pt(date)}.</b>"
@@ -378,6 +497,12 @@ date = st.date_input("Data de realização", datetime.now())
 hours = st.number_input("Carga horária (horas)", min_value=1, step=1)
 city = st.text_input("Cidade de realização do Treinamento")
 
+# NOVO CAMPO: Observações
+st.header("Observações")
+observations = st.text_area("Observações (opcional)", 
+                           placeholder="Digite aqui qualquer observação adicional que deva constar no certificado...",
+                           height=100)
+
 # Seleção do instrutor
 st.header("Informações do Instrutor")
 instructor_options = [f"{instructor['name']} - {instructor['role']}" for instructor in instructors]
@@ -397,7 +522,7 @@ if st.button("Gerar Certificados"):
     if not training_name or not company or not participants or not instructor:
         st.error("Por favor, preencha todos os campos obrigatórios.")
     else:
-        pdf_buffer = generate_pdf(participants, training_name, company, date.strftime("%d/%m/%Y"), hours, instructor)
+        pdf_buffer = generate_pdf(participants, training_name, company, date.strftime("%d/%m/%Y"), hours, instructor, observations)
         st.success("Certificados gerados com sucesso!")
         st.download_button(
             label="Baixar Certificados",
