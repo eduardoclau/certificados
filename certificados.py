@@ -455,6 +455,8 @@ training_options = [
     "NR-05 - CIPA",
     "NR-11 - Operador de Empilhadeira",
     "NR-11 - Operador de Munck",
+    "NR-11 -  Operador de Paleteira/Transpaleteira",
+    "NR-11 -  Operador de Ponte Rolante",
     "NR-11 - Operador de Retroescavadeira",
     "NR-11 - Operador de Pá Carregadeira",
     "NR-20 - Inflamáveis Classe I",
@@ -538,5 +540,6 @@ if st.button("Gerar Certificados"):
             file_name="certificados.pdf",
             mime="application/pdf",
         )
+
 
 
