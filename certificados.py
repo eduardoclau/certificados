@@ -197,6 +197,26 @@ conteudos_programaticos = {
         "Comunicação e sinalização no canteiro de obras",
         "Procedimentos de emergência"
     ],
+    "NR-11 -  Operador de Ponte Rolante": [
+        "Legislação e normas técnicas",
+        "Características técnicas da ponte rolante",
+        "Inspeção e manutenção diária",
+        "Técnicas de carregamento e descarregamento",
+        "Movimentação em diferentes superfícies",
+        "Controle de estabilidade e centro de gravidade",
+        "Comunicação e sinalização no canteiro de obras",
+        "Procedimentos de emergência"   
+    ],
+    "NR-11 -  Operador de Paleteira/Transpaleteira": [
+        "Legislação e normas técnicas",
+        "Características técnicas da Paleteira/Transpaleteira",
+        "Inspeção e manutenção diária",
+        "Técnicas de carregamento e descarregamento",
+        "Movimentação em diferentes superfícies",
+        "Controle de estabilidade e centro de gravidade",
+        "Comunicação e sinalização no canteiro de obras",
+        "Procedimentos de emergência"   
+    ],
     "NR-20 - Inflamáveis Classe I": [
         "Características dos inflamáveis classe I",
         "Identificação e avaliação de riscos",
@@ -518,4 +538,5 @@ if st.button("Gerar Certificados"):
             file_name="certificados.pdf",
             mime="application/pdf",
         )
+
 
