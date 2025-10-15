@@ -496,7 +496,12 @@ instructors = [
         "name": "José Vilmar Krutli",
         "role": "Técnico em Segurança do Trabalho",
         "registration": "MTE/SC.00019615"
-    }
+    },
+    { "name": Júnior Dreissig,
+      "role": "Técnico em Segurança do Trabalho",
+      "registration": "MTE/PR.0016206D"
+     }
+
 ]
 
 # Entrada de dados
