@@ -500,6 +500,10 @@ instructors = [
     { "name": "Júnior Dreissig",
       "role": "Técnico em Segurança do Trabalho",
       "registration": "MTE/PR.0016206D"
+     },
+    { "name": "Elaine Külkamp Silveira",
+      "role": "Fisioterapeuta Ergonomista",
+      "registration": "CREFITO 98950-F"
      }
 
 ]
@@ -545,6 +549,7 @@ if st.button("Gerar Certificados"):
             file_name="certificados.pdf",
             mime="application/pdf",
         )
+
 
 
 
