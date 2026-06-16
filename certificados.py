@@ -157,16 +157,21 @@ conteudos_programaticos = {
         "Organização da CIPA e outros assuntos necessários ao exercício das atribuições da Comissão",
         "Metodologia de investigação e análise de acidentes do trabalho"
     ],
-    "NR-11 - Operador de Empilhadeira": [
-        "Legislação e normas técnicas aplicáveis",
-        "Componentes e sistemas da empilhadeira",
-        "Inspeção diária e preventiva do equipamento",
-        "Técnicas de operação segura",
-        "Sinalização e comunicação no ambiente de trabalho",
-        "Estabilidade de cargas e noções de centro de gravidade",
-        "Manutenção básica e corretiva",
-        "Procedimentos de emergência"
+    "NR 11 - TRANSPORTE, MOVIMENTAÇÃO, ARMAZENAGEM E MANUSEIO DE MATERIAIS":[
+        
     ],
+    "NR-11 - Transporte, Movimentação, Armazenagem e Manuseio de Materiais": [
+        "Legislação, normas regulamentadoras e responsabilidades",
+        "Conceitos gerais de movimentação e transporte de cargas",
+        "Tipos de equipamentos de movimentação e suas características",
+        "Inspeção prévia, manutenção preventiva e check-list dos equipamentos",
+        "Técnicas de amarração, eslingamento e fixação segura de cargas",
+        "Estabilidade, distribuição de peso e cálculo de capacidade de carga",
+        "Sinalização de segurança, isolamento de área e comunicação visual",
+        "Riscos associados à movimentação e medidas de controle (EPC e EPI)",
+        "Normas de segurança para armazenamento e empilhamento de materiais",
+        "Procedimentos em caso de emergência, primeiros socorros e combate a incêndio"
+],
     "NR-11 - Operador de Munck": [
         "Legislação específica para operação de munck",
         "Características técnicas do equipamento",
