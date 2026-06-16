@@ -157,9 +157,6 @@ conteudos_programaticos = {
         "Organização da CIPA e outros assuntos necessários ao exercício das atribuições da Comissão",
         "Metodologia de investigação e análise de acidentes do trabalho"
     ],
-    "NR 11 - TRANSPORTE, MOVIMENTAÇÃO, ARMAZENAGEM E MANUSEIO DE MATERIAIS":[
-        
-    ],
     "NR-11 - Transporte, Movimentação, Armazenagem e Manuseio de Materiais": [
         "Legislação, normas regulamentadoras e responsabilidades",
         "Conceitos gerais de movimentação e transporte de cargas",
@@ -458,6 +455,7 @@ training_options = [
     "NR-07 - Primeiros Socorros",
     "NR-05 - Designado CIPA",
     "NR-05 - CIPA",
+    "NR-11 - Transporte, Movimentação, Armazenagem e Manuseio de Materiais",
     "NR-11 - Operador de Empilhadeira",
     "NR-11 - Operador de Munck",
     "NR-11 -  Operador de Paleteira/Transpaleteira",
